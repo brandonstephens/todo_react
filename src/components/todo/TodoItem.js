@@ -2,12 +2,9 @@ import React from 'react'
 
 export const TodoItem = (props) => {
     return (
-        <div className="input-group">
-            <span className="input-group-addon">
-                <input type="checkbox" defaultChecked={props.isComplete} />
-            </span>
-            <input type="text" className="form-control" placeholder={props.name} />
-        </div>
+        <li className="list-group-item">
+            <input type="checkbox" defaultChecked={props.isComplete} />&nbsp;{props.name}
+        </li>
     )
 }
 

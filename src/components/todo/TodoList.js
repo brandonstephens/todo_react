@@ -3,11 +3,11 @@ import {TodoItem} from './TodoItem'
 
 export const TodoList = (props) => {
     return (
-        <div className="todo-list">
+        <ul className="list-group">
             {
                 props.todos.map(todo => <TodoItem key={todo.id} {...todo}/>)
             }
-        </div>
+        </ul>
     )
 }
 
