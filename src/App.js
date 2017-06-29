@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './App.css'
-import {TodoForm, TodoList} from './components/todo'
-import {addTodo, generateId} from './lib/todoHelpers'
+import { TodoForm, TodoList } from './components/todo'
+import { addTodo, generateId } from './lib/todoHelpers'
 
 class App extends Component {
 
@@ -23,7 +23,7 @@ class App extends Component {
   handleSubmit(event) {
     event.preventDefault()
     const newId = generateId()
-    const newTodo = {id: newId, name: this.state.currentTodo, isComplete: false}
+    const newTodo = { id: newId, name: this.state.currentTodo, isComplete: false }
     const updatedTodos = addTodo(this.state.todos, newTodo)
     this.setState({
       todos: updatedTodos,
@@ -46,7 +46,7 @@ class App extends Component {
 
   render() {
     const submitHandler = this.state.currentTodo ? this.handleSubmit : this.handleEmptySubmit
-    
+
     return (
       <div className="container">
         <div className="row">
@@ -56,15 +56,22 @@ class App extends Component {
             <div className="row">
               <div className="col-sm-4 col-sm-offset-4">
 
-                <TodoForm 
-                  handleInputChange={this.handleInputChange} 
+                <TodoForm
+                  handleInputChange={this.handleInputChange}
                   currentTodo={this.state.currentTodo}
                   handleSubmit={submitHandler}
                 />
 
+                {
+                  this.state.errorMessage &&
+                    <span className="label label-danger">
+                      {this.state.errorMessage}
+                    </span>
+                }
+
                 <hr />
 
-                <TodoList todos={this.state.todos}/>
+                <TodoList todos={this.state.todos} />
               </div>
             </div>
           </div>
