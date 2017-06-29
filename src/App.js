@@ -4,23 +4,16 @@ import { TodoForm, TodoList } from './components/todo'
 import { addTodo, generateId } from './lib/todoHelpers'
 
 class App extends Component {
-
-  constructor() {
-    super()
-    this.state = {
-      todos: [
-        { id: 1, name: 'foo', isComplete: true },
-        { id: 2, name: 'bar', isComplete: false },
-        { id: 3, name: 'baz', isComplete: false }
-      ],
-      currentTodo: ''
-    }
-    this.handleInputChange = this.handleInputChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
-    this.handleEmptySubmit = this.handleEmptySubmit.bind(this)
+  state = {
+    todos: [
+      { id: 1, name: 'foo', isComplete: true },
+      { id: 2, name: 'bar', isComplete: false },
+      { id: 3, name: 'baz', isComplete: false }
+    ],
+    currentTodo: ''
   }
 
-  handleSubmit(event) {
+  handleSubmit = (event) => {
     event.preventDefault()
     const newId = generateId()
     const newTodo = { id: newId, name: this.state.currentTodo, isComplete: false }
@@ -32,14 +25,14 @@ class App extends Component {
     })
   }
 
-  handleEmptySubmit(event) {
+  handleEmptySubmit = (event) => {
     event.preventDefault()
     this.setState({
       errorMessage: 'Please add a todo'
     })
   }
 
-  handleInputChange(event) {
+  handleInputChange = (event) => {
     this.setState({
       currentTodo: event.target.value
     })
@@ -65,9 +58,9 @@ class App extends Component {
 
                 {
                   this.state.errorMessage &&
-                    <span className="label label-danger">
-                      {this.state.errorMessage}
-                    </span>
+                  <span className="label label-danger">
+                    {this.state.errorMessage}
+                  </span>
                 }
 
                 <hr />
