@@ -17,6 +17,7 @@ class App extends Component {
     }
     this.handleInputChange = this.handleInputChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleEmptySubmit = this.handleEmptySubmit.bind(this)
   }
 
   handleSubmit(event) {
@@ -30,6 +31,13 @@ class App extends Component {
     })
   }
 
+  handleEmptySubmit(event) {
+    event.preventDefault()
+    this.setState({
+      errorMessage: 'Please add a todo'
+    })
+  }
+
   handleInputChange(event) {
     this.setState({
       currentTodo: event.target.value
@@ -37,6 +45,8 @@ class App extends Component {
   }
 
   render() {
+    const submitHandler = this.state.currentTodo ? this.handleSubmit : this.handleEmptySubmit
+    
     return (
       <div className="container">
         <div className="row">
@@ -49,7 +59,7 @@ class App extends Component {
                 <TodoForm 
                   handleInputChange={this.handleInputChange} 
                   currentTodo={this.state.currentTodo}
-                  handleSubmit={this.handleSubmit}
+                  handleSubmit={submitHandler}
                 />
 
                 <hr />
