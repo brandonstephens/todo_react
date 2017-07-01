@@ -1,8 +1,15 @@
 import React, { Component } from 'react'
 import './App.css'
 import { TodoForm, TodoList } from './components/todo'
-import { addTodo, generateId, findById, toggleTodo, updateTodo } from './lib/todoHelpers'
-import {pipe, partial} from './lib/utils'
+import { 
+  addTodo,
+  generateId,
+  findById,
+  toggleTodo,
+  updateTodo,
+  removeTodo } from './lib/todoHelpers'
+import {pipe,
+  partial} from './lib/utils'
 
 class App extends Component {
   state = {
@@ -12,6 +19,12 @@ class App extends Component {
       { id: 3, name: 'baz', isComplete: false }
     ],
     currentTodo: ''
+  }
+
+  handleRemove = (id, event) => {
+    event.preventDefault()
+    const updatedTodos = removeTodo(this.state.todos, id)
+    this.setState({todos: updatedTodos})
   }
 
   handleToggle = (id) => {
@@ -74,7 +87,11 @@ class App extends Component {
 
                 <hr />
 
-                <TodoList handleToggle={this.handleToggle} todos={this.state.todos} />
+                <TodoList 
+                  handleToggle={this.handleToggle} 
+                  todos={this.state.todos} 
+                  handleRemove={this.handleRemove} 
+                />
               </div>
             </div>
           </div>
