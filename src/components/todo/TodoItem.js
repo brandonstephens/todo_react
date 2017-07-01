@@ -1,5 +1,5 @@
 import React from 'react'
-import {partial} from '../../lib/utils'
+import { partial } from '../../lib/utils'
 
 export const TodoItem = (props) => {
     const handleToggle = partial(props.handleToggle, props.id)
@@ -7,8 +7,18 @@ export const TodoItem = (props) => {
 
     return (
         <li className="list-group-item">
-            <input type="checkbox" checked={props.isComplete} onChange={handleToggle} />&nbsp;{props.name}
-            <a href="#" onClick={handleRemove} className="label label-danger pull-right">remove</a>
+            <input
+                type="checkbox"
+                checked={props.isComplete}
+                onChange={handleToggle}
+            /> &nbsp; {props.name}
+            <a
+                href="#"
+                onClick={handleRemove}
+                className="label label-danger pull-right"
+            >
+                remove
+            </a>
         </li>
     )
 }
