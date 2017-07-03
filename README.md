@@ -20,7 +20,7 @@
 - [x] Chapter 16
 - [x] Chapter 17
 - [x] Chapter 18
-- [ ] Chapter 19
+- [x] Chapter 19
 - [ ] Chapter 20
 - [ ] Chapter 21
 - [ ] Chapter 22
