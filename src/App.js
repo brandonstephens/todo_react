@@ -45,8 +45,12 @@ class App extends Component {
       errorMessage: ''
     })
 
-    createTodo(newTodo)
-      .then(() => console.log('Todo added'))
+    createTodo(newTodo).then(() => this.showTempMessage('Todo added'))
+  }
+
+  showTempMessage = (msg) => {
+    this.setState({message: msg})
+    setTimeout(() => this.setState({message: ''}), 2500)
   }
 
   handleEmptySubmit = (event) => {
@@ -86,6 +90,13 @@ class App extends Component {
                   this.state.errorMessage &&
                   <span className="label label-danger">
                     {this.state.errorMessage}
+                  </span>
+                }
+
+                {
+                  this.state.message &&
+                  <span className="label label-success">
+                    {this.state.message}
                   </span>
                 }
 
