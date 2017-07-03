@@ -21,8 +21,8 @@
 - [x] Chapter 17
 - [x] Chapter 18
 - [x] Chapter 19
-- [ ] Chapter 20
-- [ ] Chapter 21
-- [ ] Chapter 22
-- [ ] Chapter 23
+- [x] Chapter 20
+- [x] Chapter 21
+- [x] Chapter 22
+- [x] Chapter 23
 - [ ] Chapter 24
