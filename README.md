@@ -1,5 +1,7 @@
 # Todo React Tutorial
 
+<https://egghead.io/courses/build-your-first-production-quality-react-app>
+
 <https://www.youtube.com/playlist?list=PLfIiLAdVjM1vEVkwi_PtwH_76agmfWs6A>
 
 - [x] Chapter 01
@@ -25,4 +27,4 @@
 - [x] Chapter 21
 - [x] Chapter 22
 - [x] Chapter 23
-- [ ] Chapter 24
+- [x] Chapter 24
